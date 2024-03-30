@@ -4,6 +4,7 @@ from discord.ext import commands
 import asyncio
 import random
 import requests
+import os
 
 #봇 접두사 .
 bot = commands.Bot(command_prefix='.',intents=discord.Intents.all())
@@ -274,4 +275,6 @@ async def 알려(ctx, keyword):
         await ctx.send(f"'{keyword}'에 대한 정보를 찾을 수 없어요.")
 
 # 봇 실행
-bot.run('MTIwMDY3NjcwNjU5NjQyMTY0Mg.G8P7uu.cXgqJvkCfqcXYwdCx4JtHyjOywk4BQgx4K-RWM') #토큰
+
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token) #토큰
